@@ -27,8 +27,12 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
-      - name: ${{github.event.head_commit}} sta innescando lo step di verifica Node
+      - name: ${{github.event.head_commit.message}} sta innescando lo step di verifica Node
         run: node --version
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Build App
+        run: npm run build
 
 
     
