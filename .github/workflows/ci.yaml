@@ -16,10 +16,13 @@ jobs:
         run: echo "caciotta"
 
   setup-node:
+    needs: test
     name: Setup node@24
     runs-on: ubuntu-latest
 
     steps:
+      - name: Check ENV
+        run: echo ${{env.NODE_VERSION}}
       - name: Setup Node 24
         uses: actions/setup-node@v4
         with:
@@ -31,6 +34,6 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - name: ${{github.event}} sta innescando lo step di verifica Node
+      - name: ${{github.event.head_commit}} sta innescando lo step di verifica Node
         run: node --version
     
