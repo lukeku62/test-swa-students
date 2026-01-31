@@ -1,4 +1,6 @@
 name: CI Pipeline
+env:
+  NODE_VERSION: 24
 
 on:
   push:
@@ -13,8 +15,18 @@ jobs:
       - name: Prova stampa
         run: echo "caciotta"
 
+  setup-node:
+    name: Setup node@24
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Setup Node 24
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
   check-node:
-    needs: test
+    needs: setup-node
     name: Verificare la versione installata di Node
     runs-on: ubuntu-latest
     
