@@ -14,8 +14,10 @@ jobs:
         run: echo "caciotta"
 
   check-node:
+    needs: test
     name: Verificare la versione installata di Node
     runs-on: ubuntu-latest
+    
     steps:
       - name: ${{github.event}} sta innescando lo step di verifica Node
         run: node --version
