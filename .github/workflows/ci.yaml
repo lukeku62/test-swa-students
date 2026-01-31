@@ -1,4 +1,4 @@
-name: CI Pipeline
+name: CI Pipeline 
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
 
 jobs:
   test:
-    name: Test CI
+    name: Test CI ran by ${{ github.actor }}
     runs-on: ubuntu-latest
 
     steps:
