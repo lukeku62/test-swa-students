@@ -27,13 +27,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
-
-  check-node:
-    needs: setup-node
-    name: Verificare la versione installata di Node
-    runs-on: ubuntu-latest
-    
-    steps:
       - name: ${{github.event.head_commit}} sta innescando lo step di verifica Node
         run: node --version
+
+
     
