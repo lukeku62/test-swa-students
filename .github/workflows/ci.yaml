@@ -34,6 +34,8 @@ jobs:
         run: npm i
       - name: Build App
         run: npm run build
+      - name: Lint App
+        run: npm run lint
 
 
     
