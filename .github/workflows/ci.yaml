@@ -1,0 +1,16 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  test:
+    name: Test CI
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Prova stampa
+        run: echo "caciotta"
+
+    
