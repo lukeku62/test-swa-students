@@ -26,16 +26,18 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
+      - name: Setup pnpm
+        run: npm i -g pnpm
       - name: ${{github.event.head_commit.message}} sta innescando lo step di verifica Node
         run: node --version
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Install dependencies
-        run: npm i
+        run: pnpm i
       - name: Build App
-        run: npm run build
+        run: pnpm build
       - name: Lint App
-        run: npm run lint
+        run: pnpm lint
 
 
     
